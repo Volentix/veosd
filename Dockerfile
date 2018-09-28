@@ -1,11 +1,8 @@
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-RUN apt-get update
-RUN apt-get install software-properties-common python-software-properties
-RUN add-apt-repository ppa:jonathonf/python-3.6 -y 
-RUN apt-get update
-RUN apt-get install python3.6 -y
+RUN apt-get update && \
+    apt-get install -y wget bash zip rsync python3-venv python3-dev build-essential
 
 RUN mkdir ~/eosio-wallet
 COPY ./eosio-wallet ~/eosio-wallet
