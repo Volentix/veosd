@@ -1,8 +1,15 @@
 
 FROM ubuntu:18.04
 
-RUN apt-get update && \
-    apt-get install -y wget bash zip rsync python3-venv python3-dev build-essential
+RUN apt-get update \
+  && apt-get install -y python3-pip python3-dev \
+  && cd /usr/local/bin \
+  && ln -s /usr/bin/python3 python \
+  && pip3 install cryptography \
+  && pip3 install --upgrade pip
+  
+
+COPY ./code /code
 
 RUN mkdir ~/eosio-wallet
 COPY ./eosio-wallet ~/eosio-wallet
