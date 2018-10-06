@@ -1,6 +1,8 @@
 import subprocess
 from cryptography.fernet import Fernet
 
+# https://blog.sentry.io/2018/03/06/the-sentry-workflow
+# TODO: Make this a singleton.
 class Wallet:
 
     def __init__(self):
